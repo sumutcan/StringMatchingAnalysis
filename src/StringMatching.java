@@ -18,7 +18,7 @@ public class StringMatching {
 		this.filePath = filePath;
 		shiftTable = new Hashtable<Character,Integer>();
 		parseInputFile();
-		createShiftTable();
+		
 	}
 	
 	private void createShiftTable() throws IOException {
@@ -27,8 +27,13 @@ public class StringMatching {
 		for (int i = 65; i<91; i++)
 			shiftTable.put((char)i, pattern.length());
 		
-		int location = -1;
-		char[] charArray = inputString.toCharArray();
+		
+		char[] charArray = pattern.toCharArray();
+		
+		for (int i=0; i<charArray.length-1; i++)
+		{
+			shiftTable.put(charArray[i], charArray.length-i-1);
+		}
 		
 	}
 
@@ -37,9 +42,9 @@ public class StringMatching {
 		
 	}
 	
-	public void horpool()
+	public void horspool() throws IOException
 	{
-		
+		createShiftTable();
 	}
 	public void boyerMoore()
 	{

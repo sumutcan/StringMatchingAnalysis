@@ -11,7 +11,7 @@ public class StringMatchingTest {
 		try
 		{
 			StringMatching strMatch = new StringMatching("/home/umutcan/workspace/AlgoritmaPart2/src/input");
-			
+			strMatch.horspool();
 			
 			
 		}catch(IOException ioEx)
