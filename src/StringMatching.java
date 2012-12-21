@@ -23,7 +23,7 @@ public class StringMatching {
 	
 	private void createShiftTable() throws IOException {
 		StringReader reader = new StringReader(pattern);
-		
+		shiftTable.put('_', pattern.length());
 		for (int i = 65; i<91; i++)
 			shiftTable.put((char)i, pattern.length());
 		
@@ -39,12 +39,35 @@ public class StringMatching {
 
 	public void bruteForce()
 	{
-		
+		boolean match = false;
+		for (int i=0;i<inputString.length();i++)
+		{
+			int pCharLoc = 0;
+			do
+			{
+				if (inputString.charAt(i) == pattern.charAt(pCharLoc))
+				{
+					pCharLoc++;
+					match = true;
+					i++;
+				}
+				else
+				{
+					pCharLoc = 0;
+					match = false;
+				}
+				
+			}while (match && pCharLoc != pattern.length()-1);
+			//checking match variable. which condition broke do-while? pattern ran out and all matched or a mismatch occured
+			if (match)
+				System.out.println(i);
+		}
 	}
 	
 	public void horspool() throws IOException
 	{
 		createShiftTable();
+		
 	}
 	public void boyerMoore()
 	{
