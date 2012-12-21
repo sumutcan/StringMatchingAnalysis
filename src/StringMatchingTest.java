@@ -12,6 +12,7 @@ public class StringMatchingTest {
 		{
 			StringMatching strMatch = new StringMatching("/home/umutcan/workspace/AlgoritmaPart2/src/input");
 			strMatch.bruteForce();
+			strMatch.horspool();
 			strMatch.outputFile();
 			
 			

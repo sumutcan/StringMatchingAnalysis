@@ -83,8 +83,37 @@ public class StringMatching {
 	
 	public void horspool() throws IOException
 	{
+		long startTime = System.nanoTime();
 		createShiftTable();
-		
+		boolean match = false;
+		int iCharLoc = pattern.length()-1;
+		int pCharLoc = pattern.length()-1;
+		char lastChar;
+		int lastCharLoc;
+		while (iCharLoc < inputString.length() && !match)
+		{
+			lastChar = inputString.charAt(iCharLoc);
+			lastCharLoc = iCharLoc;
+			do
+			{
+				comparisonCounts.put("horspool", comparisonCounts.get("horspool")+1);
+				if (inputString.charAt(iCharLoc) == pattern.charAt(pCharLoc))
+				{
+					match = true;
+					iCharLoc--;
+					pCharLoc--;
+				}
+				else
+				{
+					match = false;
+					iCharLoc=lastCharLoc+shiftTable.get(lastChar);
+					pCharLoc=pattern.length()-1;
+				}
+			}while (match && pCharLoc > -1);
+		}
+//		if (match)
+//			System.out.println(iCharLoc + " - " + (iCharLoc + pattern.length()));
+		runtimes.put("horspool", System.nanoTime()-startTime);
 	}
 	public void boyerMoore()
 	{
@@ -107,5 +136,18 @@ public class StringMatching {
 		System.out.print("Runtime (nsec): ");
 		System.out.println(runtimes.get("bruteForce"));
 		
+		System.out.println();
+		
+		System.out.println("Horspool String Matching");
+		
+		System.out.println(shiftTable);
+		
+		System.out.println();
+		
+		System.out.print("Number of key comparison: ");
+		System.out.println(comparisonCounts.get("horspool"));
+		
+		System.out.print("Runtime (nsec): ");
+		System.out.println(runtimes.get("horspool"));
 	}
 }
