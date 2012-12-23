@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.StringReader;
 import java.util.Hashtable;
 
 
@@ -13,18 +12,24 @@ public abstract class StringMatching {
 	protected String pattern;
 	protected int comparisonCount;
 	protected long runtime;
+
 	protected Hashtable<Character, Integer> shiftTable;
+
 	
 	public StringMatching(String filePath) throws IOException
 	{
 		this.filePath = filePath;
+
 		shiftTable = new Hashtable<Character,Integer>();
+
+
 		comparisonCount = 0;
 		runtime = (long)0;
 		parseInputFile();
 		
 	}
 	
+
 	public StringMatching(String inputString, String pattern)
 	{
 		this.inputString = inputString;
@@ -47,8 +52,10 @@ public abstract class StringMatching {
 		{
 			shiftTable.put(charArray[i], charArray.length-i-1);
 		}
-		
 	}
+
+	
+
 	
 	private void parseInputFile() throws IOException
 	{
@@ -57,7 +64,9 @@ public abstract class StringMatching {
 		pattern = in.readLine();
 		in.close();
 	}
+
 	public abstract int run () throws IOException;
+
 	
 	public abstract void outputFile();
 

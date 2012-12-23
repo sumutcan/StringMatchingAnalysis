@@ -7,10 +7,12 @@ public class Horspool extends StringMatching {
 	
 	public Horspool(String filePath) throws IOException {
 		super(filePath);
-		
+		shiftTable = new Hashtable<Character,Integer>();
 	}
+	
 
 	@Override
+
 	public int run() throws IOException {
 		long startTime = System.nanoTime();
 		super.createShiftTable();

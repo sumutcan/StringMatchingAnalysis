@@ -4,6 +4,7 @@ import java.util.Hashtable;
 
 public class BoyerMoore extends StringMatching {
 
+
 	private Hashtable<Integer, Integer> goodSuffixTable;
 	private int longestSuffix;
 	
@@ -12,10 +13,11 @@ public class BoyerMoore extends StringMatching {
 		super(filePath);
 		goodSuffixTable = new Hashtable<Integer,Integer>();
 		longestSuffix = 0;
-		
-	}
 
+	}
+		
 	@Override
+
 	public int run() throws IOException {
 		super.createShiftTable();
 		createGoodSuffixTable();

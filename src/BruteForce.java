@@ -34,6 +34,7 @@ public class BruteForce extends StringMatching {
 				
 			}while (match && pCharLoc != pattern.length()-1);
 			//checking match variable. which condition broke do-while? pattern ran out and all matched or a mismatch occured
+
 		}
 		
 		runtime = System.nanoTime()-startTime;
@@ -42,7 +43,9 @@ public class BruteForce extends StringMatching {
 			return i;
 		
 		return -1;
-	}
+
+		}
+		
 
 	@Override
 	public void outputFile() {
