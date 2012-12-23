@@ -25,7 +25,14 @@ public abstract class StringMatching {
 		
 	}
 	
-
+	public StringMatching(String inputString, String pattern)
+	{
+		this.inputString = inputString;
+		this.pattern = pattern;
+		shiftTable = new Hashtable<Character,Integer>();
+		comparisonCount = 0;
+		runtime = (long)0;
+	}
 	
 	protected void createShiftTable() throws IOException {
 		
@@ -50,7 +57,7 @@ public abstract class StringMatching {
 		pattern = in.readLine();
 		in.close();
 	}
-	public abstract void run () throws IOException;
+	public abstract int run () throws IOException;
 	
 	public abstract void outputFile();
 

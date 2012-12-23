@@ -10,11 +10,11 @@ public class StringMatchingTest {
 
 		try
 		{
-			StringMatching[] algorithms = new StringMatching[2];
+			StringMatching[] algorithms = new StringMatching[3];
 		
 			algorithms[0] = new BruteForce("/home/umutcan/workspace/AlgoritmaPart2/src/input");
 			algorithms[1] = new Horspool("/home/umutcan/workspace/AlgoritmaPart2/src/input");
-			//algorithms[2] = new BoyerMoore("/home/umutcan/workspace/AlgoritmaPart2/src/input");
+			algorithms[2] = new BoyerMoore("/home/umutcan/workspace/AlgoritmaPart2/src/input");
 			
 			for (StringMatching strMatch : algorithms) {
 				strMatch.run();

@@ -10,10 +10,11 @@ public class BruteForce extends StringMatching {
 	}
 
 	@Override
-	public void run() throws IOException {
+	public int run() throws IOException {
 		long startTime = System.nanoTime();
 		boolean match = false;
-		for (int i=0;i<inputString.length();i++)
+		int i;
+		for (i=0;i<inputString.length() && match != true;i++)
 		{
 			int pCharLoc = 0;
 			do
@@ -33,12 +34,14 @@ public class BruteForce extends StringMatching {
 				
 			}while (match && pCharLoc != pattern.length()-1);
 			//checking match variable. which condition broke do-while? pattern ran out and all matched or a mismatch occured
-//			if (match)
-//				System.out.println(i);
 		}
 		
 		runtime = System.nanoTime()-startTime;
-
+		
+		if (match)
+			return i;
+		
+		return -1;
 	}
 
 	@Override

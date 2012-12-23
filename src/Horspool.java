@@ -11,7 +11,7 @@ public class Horspool extends StringMatching {
 	}
 
 	@Override
-	public void run() throws IOException {
+	public int run() throws IOException {
 		long startTime = System.nanoTime();
 		super.createShiftTable();
 		boolean match = false;
@@ -40,9 +40,13 @@ public class Horspool extends StringMatching {
 				}
 			}while (match && pCharLoc > -1);
 		}
-//		if (match)
-//			System.out.println(iCharLoc + " - " + (iCharLoc + pattern.length()));
+		
 		runtime = System.nanoTime()-startTime;
+		if (match)
+			return iCharLoc + pattern.length();
+		else
+			return -1;
+		
 		
 	}
 
