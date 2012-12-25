@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 
@@ -53,15 +56,31 @@ public class BruteForce extends StringMatching {
 		
 
 	@Override
-	public void outputFile() {
-		System.out.println("Brute Force String Matching");
-		System.out.print("Number of key comparison: ");
-		System.out.println(comparisonCount);
+	public void outputFile() throws IOException{
 		
-		System.out.print("Runtime (nsec): ");
-		System.out.println(runtime);
+		File file = new File("/home/umutcan/workspace/AlgoritmaPart2/src/output");
 		
-		System.out.println();
+		if (!file.exists())
+			file.createNewFile();
+		
+		FileWriter writer = new FileWriter(file,true);
+		BufferedWriter bufWriter = new BufferedWriter(writer);
+		
+		bufWriter.write("Brute Force String Matching\n\n");
+		bufWriter.write("Number of key comparison: ");
+		bufWriter.write(comparisonCount+"\n");
+		bufWriter.write("Runtime (nsec): ");
+		bufWriter.write(runtime + "\n\n");
+		bufWriter.close();
+		
+//		System.out.println("Brute Force String Matching");
+//		System.out.print("Number of key comparison: ");
+//		System.out.println(comparisonCount);
+//		
+//		System.out.print("Runtime (nsec): ");
+//		System.out.println(runtime);
+//		
+//		System.out.println();
 		
 		
 	}

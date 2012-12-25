@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Hashtable;
 
@@ -57,20 +60,39 @@ public class Horspool extends StringMatching {
 	}
 
 	@Override
-	public void outputFile() {
-		System.out.println("Horspool String Matching");
+	public void outputFile() throws IOException {
 		
-		System.out.println(shiftTable);
+		File file = new File("/home/umutcan/workspace/AlgoritmaPart2/src/output");
 		
-		System.out.println();
+		if (!file.exists())
+			file.createNewFile();
 		
-		System.out.print("Number of key comparison: ");
-		System.out.println(comparisonCount);
+		FileWriter writer = new FileWriter(file,true);
+		BufferedWriter bufWriter = new BufferedWriter(writer);
 		
-		System.out.print("Runtime (nsec): ");
-		System.out.println(runtime);
+		bufWriter.write("Horspool String Matching\n\n");
+		bufWriter.write("Shift Table\n");
+		bufWriter.write(shiftTable.toString() + "\n\n");
+		bufWriter.write("Number of key comparison: ");
+		bufWriter.write(comparisonCount+"\n");
+		bufWriter.write("Runtime (nsec): ");
+		bufWriter.write(runtime + "\n\n");
+		bufWriter.close();
 		
-		System.out.println();
+		
+//		System.out.println("Horspool String Matching");
+//		
+//		System.out.println(shiftTable);
+//		
+//		System.out.println();
+//		
+//		System.out.print("Number of key comparison: ");
+//		System.out.println(comparisonCount);
+//		
+//		System.out.print("Runtime (nsec): ");
+//		System.out.println(runtime);
+//		
+//		System.out.println();
 		
 	}
 	

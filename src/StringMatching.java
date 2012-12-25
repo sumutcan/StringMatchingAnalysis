@@ -68,6 +68,6 @@ public abstract class StringMatching {
 	public abstract int run () throws IOException;
 
 	
-	public abstract void outputFile();
+	public abstract void outputFile() throws IOException;
 
 }
