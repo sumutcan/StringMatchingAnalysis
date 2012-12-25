@@ -17,6 +17,7 @@ public class BruteForce extends StringMatching {
 		for (i=0;i<inputString.length() && match != true;)
 		{
 			int pCharLoc = 0;
+			int firstCharLoc = i;
 			do
 			{
 				comparisonCount++;
@@ -28,11 +29,10 @@ public class BruteForce extends StringMatching {
 				}
 				else
 				{
-					if (!match)
-						i++;
 					
 					pCharLoc = 0;
 					match = false;
+					i=firstCharLoc+1;
 					
 				}
 				

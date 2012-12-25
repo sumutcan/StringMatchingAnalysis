@@ -11,8 +11,6 @@ public class BoyerMoore extends StringMatching {
 	private Hashtable<Integer, Integer> goodSuffixTable;
 	
 	
-	
-	
 	public BoyerMoore(String filePath) throws IOException {
 		super(filePath);
 		goodSuffixTable = new Hashtable<Integer,Integer>();
