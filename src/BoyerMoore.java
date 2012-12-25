@@ -9,6 +9,11 @@ public class BoyerMoore extends StringMatching {
 
 
 	private Hashtable<Integer, Integer> goodSuffixTable;
+<<<<<<< HEAD
+=======
+	
+	
+>>>>>>> 7672f12c802fc8cbee03c46f4eaa2cdbeb55c516
 	
 	
 	public BoyerMoore(String filePath) throws IOException {
@@ -115,7 +120,11 @@ public class BoyerMoore extends StringMatching {
 			String prefix = pattern.substring(0,i);
 			String suffix = pattern.substring(pattern.length()-i);
 			
+<<<<<<< HEAD
 			if (prefix.compareTo(suffix) == 0 && goodSuffixTable.get(suffix.length()) != pattern.length())
+=======
+			if (prefix.compareTo(suffix) == 0)
+>>>>>>> 7672f12c802fc8cbee03c46f4eaa2cdbeb55c516
 				return pattern.length()-i;
 		}
 		
