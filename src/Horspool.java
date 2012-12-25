@@ -66,6 +66,8 @@ public class Horspool extends StringMatching {
 		System.out.print("Runtime (nsec): ");
 		System.out.println(runtime);
 		
+		System.out.println();
+		
 	}
 	
 	
