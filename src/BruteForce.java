@@ -14,7 +14,7 @@ public class BruteForce extends StringMatching {
 		long startTime = System.nanoTime();
 		boolean match = false;
 		int i;
-		for (i=0;i<inputString.length() && match != true;i++)
+		for (i=0;i<inputString.length() && match != true;)
 		{
 			int pCharLoc = 0;
 			do
@@ -28,13 +28,17 @@ public class BruteForce extends StringMatching {
 				}
 				else
 				{
+					if (!match)
+						i++;
+					
 					pCharLoc = 0;
 					match = false;
+					
 				}
 				
-			}while (match && pCharLoc != pattern.length()-1);
+			}while (match && pCharLoc < pattern.length());
 			//checking match variable. which condition broke do-while? pattern ran out and all matched or a mismatch occured
-
+			
 		}
 		
 		runtime = System.nanoTime()-startTime;
