@@ -17,12 +17,14 @@ public class Horspool extends StringMatching {
 		long startTime = System.nanoTime();
 		super.createShiftTable();
 		boolean match = false;
+		//set indexes at proper initial positions
 		int iCharLoc = pattern.length()-1;
 		int pCharLoc = pattern.length()-1;
 		char lastChar;
 		int lastCharLoc;
 		while (iCharLoc < inputString.length() && !match)
 		{
+			//save last char of the current state for determine shifting amount
 			lastChar = inputString.charAt(iCharLoc);
 			lastCharLoc = iCharLoc;
 			do
@@ -30,6 +32,7 @@ public class Horspool extends StringMatching {
 				comparisonCount++;
 				if (inputString.charAt(iCharLoc) == pattern.charAt(pCharLoc))
 				{
+					//compare char by char till one of the strings run out
 					match = true;
 					iCharLoc--;
 					pCharLoc--;
@@ -37,6 +40,7 @@ public class Horspool extends StringMatching {
 				else
 				{
 					match = false;
+					//determine shift amount from shiftTable when any mismatch occurs
 					iCharLoc=lastCharLoc+shiftTable.get(lastChar);
 					pCharLoc=pattern.length()-1;
 				}

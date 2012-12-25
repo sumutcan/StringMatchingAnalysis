@@ -16,6 +16,7 @@ public class BruteForce extends StringMatching {
 		int i;
 		for (i=0;i<inputString.length() && match != true;)
 		{
+			//conterary of horspool, save first char of current state in order to shift 
 			int pCharLoc = 0;
 			int firstCharLoc = i;
 			do
@@ -29,7 +30,7 @@ public class BruteForce extends StringMatching {
 				}
 				else
 				{
-					
+					//shift first char by one char after a mismatch
 					pCharLoc = 0;
 					match = false;
 					i=firstCharLoc+1;
@@ -44,7 +45,7 @@ public class BruteForce extends StringMatching {
 		runtime = System.nanoTime()-startTime;
 		
 		if (match)
-			return i;
+			return i-1;
 		
 		return -1;
 

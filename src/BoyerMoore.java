@@ -123,7 +123,7 @@ public class BoyerMoore extends StringMatching {
 	}
 
 	private int searchSuffix(String suffix, String rest) {
-		
+		//the part left on lefthand side is longer?
 		if (rest.length() < suffix.length())
 			return -1;
 		
@@ -138,7 +138,7 @@ public class BoyerMoore extends StringMatching {
 				{
 					match = true;
 					j--;
-					if (j>-1)
+					if (j>-1) //to prevent negative index exception
 						i--;
 				}
 				else
@@ -151,9 +151,10 @@ public class BoyerMoore extends StringMatching {
 					return -1;
 				
 			}while (j>-1 && match);
-			
+			//check if the found suffix preceded by same char with the rightmost occurence
 			if (i > 0 && match && rest.charAt(rest.length()-1) == rest.charAt(i-1))
 			{
+				//if it does, continue searching to beginning of string
 				match = false;
 				j=suffix.length()-1;
 			}

@@ -40,12 +40,12 @@ public abstract class StringMatching {
 	}
 	
 	protected void createShiftTable() throws IOException {
-		
+		//initialize shifttable with possible chars and pattern length
 		shiftTable.put('_', pattern.length());
 		for (int i = 65; i<91; i++)
 			shiftTable.put((char)i, pattern.length());
 		
-		
+		//fill shift table with distance to last char of all chars 
 		char[] charArray = pattern.toCharArray();
 		
 		for (int i=0; i<charArray.length-1; i++)
